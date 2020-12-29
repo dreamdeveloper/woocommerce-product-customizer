@@ -497,7 +497,7 @@ PC.options = PC.options || {};
 			this.model.collection.selectChoice( this.model.id );
 			
 			// Maybe close the choice list
-			if ( PC.fe.config.close_choices_when_selecting_choice && ( $( 'body' ).is('.is-mobile' ) || PC.utils._isMobile() ) ) {
+			if ( PC.fe.config.close_choices_when_selecting_choice && ( $( 'body' ).is('.is-mobile' ) || PC.utils._isMobile() ) || PC.fe.config.always_close_choices_when_selecting_choice ) {
 				var layer = PC.fe.layers.get( this.model.get( 'layerId' ) );
 				if ( layer ) layer.set('active', false);
 			}
