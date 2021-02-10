@@ -839,11 +839,15 @@ PC.options = PC.options || {};
 	PC.fe.save_data = {
 		choices: [],
 		save: function() {
+			return JSON.stringify( this.get_choices() );
+		},
+		
+		get_choices: function() {
 			PC.fe.errors = [];
 			this.choices = [];
 			PC.fe.layers.each( this.parse_choices, this ); 
 			this.choices = wp.hooks.applyFilters( 'PC.fe.save_data.choices', this.choices );
-			return JSON.stringify( this.choices );
+			return this.choices;
 		},
 
 		// get choices for one layer 
