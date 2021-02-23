@@ -41,7 +41,8 @@ jQuery(function($) {
 			this.summary.activate( false );
 			this.render();
 		},
-		next: function() {
+		next: function( event ) {
+			if ( $( event.currentTarget ).is( '.mkl-pc-add-to-cart--trigger' ) ) return;
 			this.current ++; 
 			if ( this.current > this.layers.length ) this.current = this.layers.length;
 			if ( this.current == this.layers.length ) {
@@ -107,6 +108,10 @@ jQuery(function($) {
 			// Move header
 			view.$( '.mkl_pc_toolbar > header' ).insertBefore( view.$( '.mkl_pc_toolbar' ) );
 		}
+
+		view.$el.addClass( pc_stepper_config.color_mode );
+		view.$el.addClass( pc_stepper_config.list_mode );
+		view.$el.addClass( pc_stepper_config.layout );
 
 		var sum = new Summary();
 		var n = new Nav( { layers: view.$( '.mkl_pc_toolbar button.layer-item' ), summary: sum } );

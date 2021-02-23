@@ -139,7 +139,14 @@ if ( ! class_exists('MKL\PC\Frontend_Product') ) {
 					</button>
 				<?php
 			echo '<# } else { #>';
-				echo '<div class="out-of-stock"></div>';
+				echo '<div class="out-of-stock">';
+				if ( has_action( 'mkl_pc/configurator_form/out_of_stock' ) ) {
+					do_action( 'mkl_pc/configurator_form/out_of_stock' ); 
+				} else {
+					_e( 'Out of stock', 'product-configurator-for-woocommerce' );
+				}
+
+				echo '</div>';
 			echo '<# } #>';
 			echo '</div>';
 		}
