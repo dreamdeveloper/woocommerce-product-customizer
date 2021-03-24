@@ -892,6 +892,7 @@ PC.options = PC.options || {};
 									layer_name: model.attributes.name,
 									image: img_id,
 									name: choice.attributes.name,
+									// extra_price: choice.get( 'extra_price' ) ? choice.get( 'extra_price' ) : 0
 								},
 								choice
 							)
